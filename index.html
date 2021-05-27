@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="A simulator to understand how Gossip Protocol works. In this site you'll also find information to learn about them.">
+    <meta name="author" content="Félix López Luis @flopezluis">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Gossip Simulator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+     <script type="text/javascript" src="js/paper-full.min.js"></script>
+    <script src="js/gossip.js"  type="text/paperscript" canvas="canvas"></script>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Gossip Protocols</h1>
+              <p>This simulator is a simplification of Gossip protocols to help you understand Gossip Protocols at a glance. 
+If you want to read a complete introduction, I recommend that you look at my blog</p>
+              <p><a class="btn btn-lg btn-primary" href="https://managementfromscratch.wordpress.com/2016/04/01/introduction-to-gossip/" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>What are Gossip Protocols?</h1>
+              <p>Gossip protocols are communication protocols, a way of broadcasting messages inspired by:<br>
+              Epidemics, Human gossip, Social networks</p>
+              <p><a class="btn btn-lg btn-primary" href="https://managementfromscratch.wordpress.com/2016/04/01/introduction-to-gossip/" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>How do they work?</h1>
+              <p> The basic idea behind them is this: a node wants to share some information with the other nodes in the network. Then, it periodically selects a random node from the set of nodes and exchanges the information. The node receiving the information does exactly the same thing.  Normally, the information is sent periodically to N targets, not just one. N is called fanout.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="fourth-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>What are they used for?</h1>
+              <p>A primary use of gossip is for information diffusion: some event occurs and our goal is to spread the word [1]. They're also used for Database replication, Information dissemination, Cluster membership, Failure Detectors, Overlay Networks and Aggregations </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div id="wizard" class="col-md-5 carousel wizard slide" data-interval="false" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#wizard" data-slide-to="0" class="active"></li>
+            <li data-target="#wizard" data-slide-to="1"></li>
+            <li data-target="#wizard" data-slide-to="2"></li>
+            <li data-target="#wizard" data-slide-to="3"></li>
+            <li data-target="#wizard" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner wizard" role="listbox">
+            <div class="item active">
+              <h2 class="featurette-heading">Let's play with the simulator. </h2>
+              <p>As already mentioned above, Gossip Protocols are executed periodically, that is, in cycles. That's what the word cycle in the simulator means. It will rotate in every cycle. Don't worry if don't understand it. You'll see how it works really soon.</p>
+              <p> <span class="text-muted">Ok, and what about the equation?</span> The equation is an aproximation. It will show you how many cycles the gossip protocol needs to spread the information to every node. If you want to see a converge simulator that takes into account packet loss, node failures, etc. <a class="" href="https://www.serf.io/docs/internals/simulator.html">Take a look here</a>.</p>
+              <p class="">Ok, let's start playing the simulator. Select a node. Go ahead, click on any of them. The node should be red now because it's infected, as defined in one of the most influential papers [2].</p>
+              <p class="">This node wants to share the information. But what nodes should it share with? click on 'show paths'. Those are the nodes it is linked to. So, does each node have a partial view of the other nodes? It could have a complete list but that would make the protocol difficult to scale (think of thounsands/millions of nodes). Please read [3] if you want to learn more. </p>
+            <p class="text-muted">Go on to the next part</p>
+            </div>
+
+            <div class="item">
+              <h2 class="featurette-heading">Sending messages</h2>
+             <p> <span class="text-muted">Ok. It will send the info to those nodes, right?</span> No! The number of nodes is set by the fanout property. Click on 'Random selection' to see the nodes it's going to share the info with. If you click several times, you'll see that they're selected randomly.</p>
+             <p>Great! Now, let's send the info. Click in "Send Message". </p>
+              <p class="">Once a message arrives to the destination, that node is infected too. As we've already mentioned, once a node is infected, it will try to share the information again with other nodes.</p>
+              <p class="">Click on "Send Message" again.</p>
+              <p class="">Cool!, right? Every infected node tries to share the information.</p>
+              <p class="">It's time to see it in action. Press "Restart" to clear everything then click on any node and press "Play".</p>
+              <p class="text-muted">How many cycles did it take?</p> It's likely that the number of cycles the equation predicts won't be the same. Don't worry! That's normal. Keep in mind that the nodes are selected randomly so a node could posibly be selected twice.
+          </div>
+            <div class="item">
+              <h2 class="featurette-heading">Scaling</h2>
+              <p> Gossip Protocols are scalable because in general, it takes O(logN) rounds in order to reach all nodes. Also each node sends only a fixed number of messages regardless of the number of nodes in the network. A node does not wait for acknowledgments, and it doesn’t take any recovery action if an acknowledgment does not arrive. [4]. A system can easily scale to millions of processes. Updates spread in expected time that grows logarithmic with the number of participating nodes, even in the face of node failures and message loss.</p> <p>We're going to see this in action but <span class="text-muted">let's restart the simulator.</span></p>
+              <p class="">Change the nodes to 80 and press "Apply". Ohh.. Did you see it? </p>
+              <p class="">We've doubled the number of nodes and, according to the equation, it will take only once more cycle. That's cool, right?</p>
+              <p class="">Let's see this in action. Select a node and click play</p>
+              <p class="">Now, let's try it with 120. Wow! So for 40 nodes it takes 2.66 cycles and 3.45 for 120. That's pretty cool. It means it scales logarithmically.</p>
+          </div>
+
+            <div class="item">
+             <h2 class="featurette-heading">Fault Tolerant</h2>
+             <p> Gossip Protocols have the ability to operate in networks with irregular and unknown connectivity [1]. They work really well in these situations because a node shares the same information several times to different nodes. So, if a node is not accesible, the information is shared anyways via a different route. In other words, there are many routes by which information can flow from its source to its destinations</p>
+             <p> <span class="text-muted">Ok, let's see it.</span> As before, restart the simulator first.</p>
+             <p class="">We're going to delete some links. This means that some nodes are not going to be able to communicate with some nodes.</p>
+             <p>Click on a node and on "Show Paths". Then click "Delete" and start clicking on some paths.</p>
+             <p>We're going to repeat the same but with more nodes. Now this is very important <span class="text-muted">Press "Delete" again to disable it </span> because otherwise you will remove nodes too. That's something we'll take a look at in the next step.</p>
+             <p>Ok. Repeat it with more nodes and the select one node and press "Play" </p>
+             <p>Pretty cool, right? It converges even though some nodes weren't visible to some others.</p>
+          </div>
+
+            <div class="item">
+             <h2 class="featurette-heading">Robust</h2>
+             <p>No node plays a specific role in the network so a failed node will not prevent other nodes from continuing to send messages [16].  Each node can join or leave whenever it pleases without seriously disrupting the system’s overall quality of service [5]. However, these protocols are not robust in all circumstances such as, for example, with Byzantine errors. If the problem is related to a malfunctioning or malicious node then gossip is not robust at all. </p>
+             <p> <span class="text-muted">Ok, let's see how this works.</span> As before, restart the simulator first.</p>
+             <p class="">Now we're going to delete some nodes. When a node detects that other is down, it will share that information in the next cycle.</p>
+             <p>Press "Delete" and start clicking on some nodes to delete them.</p>
+             <p>Once you're done, press "Delete" again to disable it. Then select one node to infect it and press "Play"</p>
+             <p>Yeaah! It converges again even though some nodes were down.</p>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-7" style="height:660px;text-align:center;">
+            <a class="btn btn-warning" href="#" id="show_paths">Show Paths</a>
+            <a class="btn btn-warning" href="#" id="random">Random Selection / Fanout</a>
+            <a class="btn btn-warning"  href="#" id="send_message">Send Message</a>
+            <a class="btn btn-warning"  href="#" id="play">Play</a>
+            <a class="btn btn-warning" href="#" id="remove">Delete</a>
+            <a class="btn btn-warning" href="#" id="clear">Restart</a>
+            <div style="text-align:center;padding:8px;padding-top:10px;">
+            <span class="text-muted">Nodes</span><input class="input" type="text" id="nodes"></input>
+            <span class-"text-muted">Fanout</span><input class="input" type="text" id="fanout">
+            <a class="btn btn-info" href="#" id="apply">Apply</a>
+            </div>
+         <canvas id="canvas" width ="600px" height="580px" hidpi="off" style="height:600px;"></canvas>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Is it a real implementation?</h2>
+          <p class="lead">If you take a look at the code, you won't see a real implementation of a Gossip protocol. This is because there is no reason for it. The goal of this simulator is to help people understand how they work not how they're implemented. If we really wanted to do it, we would need to implement a transport layer to mimic tcp or udp. The best idea would be to use the messages as transport layer. In my github, you can see a real implementation in clojure <a class="btn-lg " href="https://github.com/flopezluis/gossip" >here</a>&<a class="btn-lg" href="https://github.com/flopezluis/hyparview">here</a> </p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="images/not_implemented.png" width="500px" height="500px" alt="Implementation">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Doubts? <span class="text-muted">This will help.</span></h2>
+          <p class="lead">In the simulator, all the nodes seem to be synchronized as if there was one global cycle. This happens in the simulator because is easier for the visualization. However, this is <span class="">NOT</span> what happens in a real gossip protocol where each node has its own cycle and there is not synchronization at all.</p>
+          <p class="lead"><span class="text-muted">How do the nodes know about each other?</span> That's a good question!</p><p class="lead"> There are several ways depending on the implementation. For example, in HyParView [6], when a node wishes to join the overlay, it must know another node that already belongs to the overlay. That node is called the contact node. In Gossip protocolsi, when two nodes exchange information, they also exchange the list of nodes thet have. In that way, the view that each node has is updated in every cycle.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="images/cycle.png" alt="Separated Cycles">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading one-column">Recommended readings and talks </h2>
+          <ul>
+            <li><a href="https://managementfromscratch.wordpress.com/2016/04/01/introduction-to-gossip/">Introduction to Gossip Protocols</a> When I started reading about Gossip I couldn't find a good introduction, there were thounsands of papers but I didn't a find a good and simple summary. So I created this one.</li>
+            <li><a href="https://www.cis.upenn.edu/~bcpierce/courses/dd/papers/demers-epidemic.pdf"> A. Demers, D. Greene, C. Hauser, W. Irish, J. Larson, S. Shenker, H. Sturgis, D. Swinehart, and D. Terry. “Epidemic Algorithms for Replicated Database Maintenance.” In Proc. Sixth Symp. on Principles of Distributed Computing, pp. 1–12, Aug. 1987. ACM.</a> This paper is consider to be seminal. So this is a mandatory reading.</li>
+            <li><a href="https://www.youtube.com/watch?v=FuP1Fvrv6ZQ">Cassandra Internals — Understanding Gossip</a>This is a good talk to understand how reconciliation works in Gossip.</li>
+            <li><a href="https://www.infoq.com/presentations/protocols-membership-dissemination-population">Membership, Dissemination and Population Protocols</a>This another good talk about practical applications of academic research with a large scale distributed system, as well as membership and dissemination protocols and their application in practice.</li>
+            <li><a href="http://lpdwww.epfl.ch/upload/documents/publications/neg--1184036295all.pdf"> The Peer Sampling Service: Experimental Evaluation of Unstructured
+Gossip-Based Implementations</a>For me the best paper to understand Gossip and how a node selects other nodes to exchange information with.</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading one-column">References</h2>
+          <p class="lead">[1] Ken Birman. The Promise, and Limitations, of Gossip Protocols. SIGOPS Oper. Syst. Rev., 41(5):8–13, October 2007 </p>
+          <p class="lead">[2] A. Demers, D. Greene, C. Hauser, W. Irish, J. Larson, S. Shenker, H. Sturgis, D. Swinehart, and D. Terry. “Epidemic Algorithms for Replicated Database Maintenance.” In Proc. Sixth Symp. on Principles of Distributed Computing, pp. 1–12, Aug. 1987. ACM.</p>
+          <p class="lead">[3] JELASITY, M., GUERRAOUI, R., KERMARREC, A.-M., AND VAN STEEN, M. 2004. The peer sampling service: Experimental evaluation of unstructured gossip-based implementations. In Middleware 2004, H.-A. Jacobsen, Ed. Lecture Notes in Computer Science, vol. 3231. Springer-Verlag, 79–98.</p>
+          <p class="lead">[4] http://www.inf.u-szeged.hu/~jelasity/ddm/gossip.pdf</p>
+          <p class="lead">[5] S. Voulgaris, M. Jelasity, M. van Steen, A Robust and Scalable Peer-to-Peer Gossiping Protocol,Lecture Notes in Computer Science (LNCS), vol. 2872 (Springer, Berlin/Heidelberg, 2004), pp. 47–58. doi:10.1007/b104265</p>
+          <p class="lead">[6] J. Leita ̃o, J. Pereira, and L. Rodrigues. Hyparview: a membership protocol for reliable gossip-based broadcast. In Proceedings of the Internacional Conference on Dependable Systems and Networks (DSN), Edinburgh, UK, June 2007.</p>
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Félix López Luis  &middot; <a href="https://twitter.com/flopezluis">@flopezluis</a> &middot; <a href="https://github.com/flopezluis/">GitHub</a></p>
+ <a href="https://github.com/flopezluis/gossip-simulator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>     </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
